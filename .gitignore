@@ -6,9 +6,17 @@ __pycache__/
 .env
 .env.*
 *.log
-crystal_pipeline/assets/
+crystal_pipeline/assets/*
+!crystal_pipeline/assets/elm/
+crystal_pipeline/assets/elm/*
+!crystal_pipeline/assets/database/
+crystal_pipeline/assets/database/*
 crystal_pipeline/outputs/
-vendor/CrystalFormer-CSP/checkpoints/
+vendor/CrystalFormer-CSP/checkpoints/*
+!vendor/CrystalFormer-CSP/checkpoints/alex20s/
+vendor/CrystalFormer-CSP/checkpoints/alex20s/*
+!vendor/CrystalFormer-CSP/checkpoints/alex20s/csp/
+vendor/CrystalFormer-CSP/checkpoints/alex20s/csp/*
 vendor/CrystalFormer-CSP/outputs/
 *.pth
 *.pt
@@ -18,3 +26,7 @@ vendor/CrystalFormer-CSP/outputs/
 *.npy
 *.npz
 *.zip
+!crystal_pipeline/assets/elm/gpt2_chem_ionic.pth
+!crystal_pipeline/assets/elm/gpt2_chem_alloy.pth
+!crystal_pipeline/assets/database/all_merged_slimmed.json
+!vendor/CrystalFormer-CSP/checkpoints/alex20s/csp/epoch_046000.pkl

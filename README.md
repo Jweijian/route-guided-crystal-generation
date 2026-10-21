@@ -2,7 +2,20 @@
 
 当前版本只包含这一条流程：**ELM 化学式生成 → 本地 RAG / DeepSeek 合成路线与英文结构描述 → CrystalFormer-CSP 晶体候选生成**。
 
-仓库只上传代码、Notebook、配置、提示词、JSON Schema、测试和第三方许可。模型权重、合成数据库、缓存与历史结果均不上传。
+仓库包含代码、Notebook、配置、提示词、JSON Schema、测试、第三方许可，以及当前流程所需的 ELM / CrystalFormer 权重和合成数据库。运行资源通过 Git LFS 保存，缓存与历史结果不上传。
+
+## 获取完整仓库
+
+先安装 [Git LFS](https://git-lfs.com/)，再克隆；不要只下载源码 ZIP，因为其中可能只有大文件指针。
+
+```powershell
+git lfs install
+git clone https://github.com/Jweijian/route-guided-crystal-generation.git
+cd route-guided-crystal-generation
+git lfs pull
+```
+
+仓库目前为私有，下载者需要获得仓库访问权限。
 
 ## 安装
 
@@ -17,9 +30,9 @@ python -m ipykernel install --user --name route-crystal --display-name "Python (
 
 默认 ELM 使用 CPU；有 NVIDIA GPU 时，可安装适配的 PyTorch CUDA wheel，并将 `crystal_pipeline/config.json` 的 `elm.device` 改为 `cuda`。CrystalFormer 沿用已验证的 JAX CPU 配置。
 
-## 准备运行资源
+## 验证运行资源
 
-按 `runtime_assets.json` 的路径放置现有文件，清单同时提供原文件大小和 SHA256：
+`git lfs pull` 会把运行文件恢复到下面的位置，`runtime_assets.json` 记录文件大小和 SHA256：
 
 | 文件 | 放置位置 |
 | --- | --- |
@@ -28,7 +41,13 @@ python -m ipykernel install --user --name route-crystal --display-name "Python (
 | 合成数据库 | `crystal_pipeline/assets/database/all_merged_slimmed.json` |
 | CrystalFormer 权重 | `vendor/CrystalFormer-CSP/checkpoints/alex20s/csp/epoch_046000.pkl` |
 
-CrystalFormer checkpoint 的原始下载链接记录在 `runtime_assets.json`；合成数据库需要自行提供。使用已有资源时可直接复制到上述路径，不需要重新下载。
+这些文件均已随仓库上传，无需另行提供数据库或手工复制权重。安装依赖后运行完整性检查：
+
+```powershell
+python scripts/check_runtime_assets.py
+```
+
+应显示 `Verified 4 runtime files.`；若提示大小错误，请确认已安装 Git LFS 并重新运行 `git lfs pull`。CrystalFormer checkpoint 的上游下载链接仍记录在清单中。
 
 ## API 设置
 
@@ -76,5 +95,13 @@ python crystal_pipeline/run.py
 ```powershell
 python -m unittest discover -s crystal_pipeline/verification -p "test_*.py"
 ```
+
+使用仓库里的真实权重和数据库验证 ELM、RAG、CrystalFormer，且不请求 API：
+
+```powershell
+python scripts/smoke_test.py
+```
+
+烟雾测试会生成一个 ELM 化学式、检索数据库，并为 `LiCu2OF3 / 空间群14` 采样结构。完整流程的路线与描述阶段仍需要用户自己的 DeepSeek API 密钥。
 
 第三方源码与来源见 `THIRD_PARTY_NOTICES.md`。仓库中的算法整合保持当前流程，未包含其他历史结构生成后端。

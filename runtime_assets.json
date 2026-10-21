@@ -1,5 +1,5 @@
 {
-  "note": "Code-only repository. These runtime files are not uploaded. Ionic mode does not require the alloy checkpoint.",
+  "note": "Runtime files are included through Git LFS. Run git lfs pull and scripts/check_runtime_assets.py after cloning. Ionic mode does not require the alloy checkpoint.",
   "files": [
     {
       "path": "crystal_pipeline/assets/elm/gpt2_chem_ionic.pth",
@@ -17,7 +17,7 @@
       "path": "crystal_pipeline/assets/database/all_merged_slimmed.json",
       "bytes": 46897688,
       "sha256": "bb9c08cefb559c558bf46907f4fe334a0f45597726a3e444ba43175584f80570",
-      "source": "User-supplied synthesis database; provide separately"
+      "source": "User-supplied synthesis database, included in the private repository through Git LFS"
     },
     {
       "path": "vendor/CrystalFormer-CSP/checkpoints/alex20s/csp/epoch_046000.pkl",
