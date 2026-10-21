@@ -1,0 +1,29 @@
+{
+  "note": "Code-only repository. These runtime files are not uploaded. Ionic mode does not require the alloy checkpoint.",
+  "files": [
+    {
+      "path": "crystal_pipeline/assets/elm/gpt2_chem_ionic.pth",
+      "bytes": 2709793,
+      "sha256": "f382e0b53abc0c697089e660a8903fca9ab7cd6c5d9cc667456bd77372d08e33",
+      "source": "CrysVCD formula_gen/checkpoint/gpt2_chem_ionic.pth"
+    },
+    {
+      "path": "crystal_pipeline/assets/elm/gpt2_chem_alloy.pth",
+      "bytes": 2541345,
+      "sha256": "a1de744605d65252a0728b898f50b6a909a6c1ff98acf4c651de34ae46d23ea6",
+      "source": "CrysVCD formula_gen/checkpoint/gpt2_chem_alloy.pth; only needed for alloy mode"
+    },
+    {
+      "path": "crystal_pipeline/assets/database/all_merged_slimmed.json",
+      "bytes": 46897688,
+      "sha256": "bb9c08cefb559c558bf46907f4fe334a0f45597726a3e444ba43175584f80570",
+      "source": "User-supplied synthesis database; provide separately"
+    },
+    {
+      "path": "vendor/CrystalFormer-CSP/checkpoints/alex20s/csp/epoch_046000.pkl",
+      "bytes": 166086618,
+      "sha256": "df1e7051df836d26f45a93fd7f21069a183777317f318001b55f8df20805d177",
+      "source": "https://huggingface.co/zdcao/CrystalFormer/resolve/b203f4273158d95b49b60a13433bf1dcc4ccf5d9/alex20s/csp/epoch_046000.pkl"
+    }
+  ]
+}

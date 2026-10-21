@@ -1,0 +1,13 @@
+{
+  "formulas": [
+    {
+      "formula": "BaGaSbO",
+      "oxidation_states": {
+        "Ba": 2,
+        "Ga": 3,
+        "Sb": -3,
+        "O": -2
+      }
+    }
+  ]
+}

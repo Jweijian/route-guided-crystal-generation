@@ -1,0 +1,26 @@
+{
+  "formulas": [
+    {
+      "formula": "TiOF2",
+      "oxidation_states": {
+        "O": -2,
+        "Ti": 4,
+        "F": -1
+      },
+      "elm_tokens": [
+        [
+          "O2-",
+          4
+        ],
+        [
+          "Ti4+",
+          4
+        ],
+        [
+          "F1-",
+          8
+        ]
+      ]
+    }
+  ]
+}

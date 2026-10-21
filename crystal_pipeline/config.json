@@ -1,0 +1,132 @@
+{
+  "_comments": {
+    "format": "标准 JSON 不支持 // 注释。本文件用每节 _comments 字段解释参数；程序忽略这些字段。",
+    "paths": "相对路径按 config.json 所在目录解析；运行资源按 assets_manifest.json 恢复。"
+  },
+  "pipeline": {
+    "_comments": {
+      "formula_source": "elm：先用 ELM 生成；file：读取 inputs/formulas.json，跳过 ELM。",
+      "output_dir": "所有运行结果的父目录；每次运行创建独立批次。",
+      "resume_run": "空字符串表示新运行；填入已有批次路径可继续相同配置的运行。",
+      "formula_input_file": "formula_source=file 时读取，格式见 inputs/formulas.json。"
+    },
+    "formula_source": "elm",
+    "formula_input_file": "inputs/formulas.json",
+    "output_dir": "outputs",
+    "resume_run": ""
+  },
+  "api": {
+    "_comments": {
+      "provider": "DeepSeek 只用于合成路线和结构描述；CIF 由本地 CrystalFormer 生成。",
+      "api_key": "使用 DEEPSEEK_API_KEY 环境变量；发布版本不保存密钥。",
+      "api_base_url": "DeepSeek 官方 API 地址。",
+      "model": "deepseek-v4-pro，当前 Pro 模型；不使用旧的 deepseek-chat/reasoner 别名。",
+      "reasoning_effort": "low：低推理强度，优先速度；支持 low、high、max，none 关闭思考。",
+      "request_timeout_seconds": "HTTP 连接/读取超时，秒；max 推理可能需要更久。",
+      "http_trust_env": "false：忽略环境中残留的 8080 代理；DeepSeek 先使用直连。",
+      "proxy_url": "留空直接连接 DeepSeek；确需代理时可填 http://127.0.0.1:12450。"
+    },
+    "provider": "deepseek",
+    "api_key": "",
+    "api_base_url": "https://api.deepseek.com",
+    "model": "deepseek-v4-pro",
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 600,
+    "http_trust_env": false,
+    "proxy_url": ""
+  },
+  "elm": {
+    "_comments": {
+      "formula_type": "ionic 或 alloy。ionic 采样后要求形式电荷平衡；alloy 价态为 0。切换时同步选择对应 checkpoint。",
+      "checkpoint": "原版 CrysVCD ELM 权重。",
+      "num_formulas": "首批生成 100 个互不重复、通过当前价态与电荷平衡筛选的化学式；不保证每个都能成功生成 CIF。",
+      "max_sampling_attempts": "最多采样次数；未得到指定数量时明确报错。",
+      "seed": "ELM 随机种子。",
+      "device": "cpu 可移植；有 NVIDIA GPU 时可改为 cuda。",
+      "max_count": "原版计数嵌入上限 20，与权重形状绑定，不可随意修改。",
+      "max_length": "原版自回归最大步数和位置嵌入长度 10，与权重绑定。",
+      "architecture": "原版权重架构：n_ctx=8、n_embd=128、n_layer=3、n_head=4；必须与 checkpoint 匹配。",
+      "property_types": "原版基础权重没有性质条件，保持空对象。",
+      "property_values": "使用另行训练的性质条件权重时填写属性值；基础权重忽略未定义属性。"
+    },
+    "formula_type": "ionic",
+    "checkpoint": "assets/elm/gpt2_chem_ionic.pth",
+    "num_formulas": 100,
+    "max_sampling_attempts": 10000,
+    "seed": 153475,
+    "device": "cpu",
+    "max_count": 20,
+    "max_length": 10,
+    "architecture": {
+      "n_ctx": 8,
+      "n_embd": 128,
+      "n_layer": 3,
+      "n_head": 4
+    },
+    "property_types": {},
+    "property_values": {}
+  },
+  "routes": {
+    "_comments": {
+      "database_file": "完整的本地合成数据库，不使用互联网检索。",
+      "max_routes": "n：两类路线合计的最大数量，允许少于 n，最少 1。",
+      "max_structures_per_route": "m：每条路线的结构候选上限，允许少于 m，最少 1。",
+      "max_workers": "并行结构假设请求数，不控制本地晶体模型并行。",
+      "formula_workers": "描述阶段同时处理的化学式数量；每个化学式依次生成路线和描述，本地 CIF 阶段不并发。",
+      "top_n": "化学相似召回数量，另保留精确组成及等价阴离子类比召回。",
+      "reference_limit": "最终输入 LLM 的参考记录数。",
+      "max_output_tokens": "每次请求的 max_tokens 上限，包含思考和可见输出。",
+      "repair_attempts": "JSON/化学校验总尝试数，默认 4；第三次起尝试新候选。",
+      "prompt_version": "提示词版本标记；实际文本及配置也参与缓存一致性检查。",
+      "prompt_files": "英文提示词文件；直接编辑文件内容即可。",
+      "schema_files": "JSON 输出格式文件；n、m 会覆盖对应 maxItems。"
+    },
+    "database_file": "assets/database/all_merged_slimmed.json",
+    "max_routes": 1,
+    "max_structures_per_route": 1,
+    "max_workers": 4,
+    "formula_workers": 4,
+    "top_n": 50,
+    "reference_limit": 5,
+    "max_output_tokens": 32768,
+    "repair_attempts": 4,
+    "prompt_version": "deepseek_rag_descriptions_v4",
+    "prompt_files": {
+      "system": "prompts/system.txt",
+      "routes": "prompts/routes.txt",
+      "structures": "prompts/structures.txt",
+      "repair": "prompts/repair.txt",
+      "fresh_alternative": "prompts/fresh_alternative.txt"
+    },
+    "schema_files": {
+      "routes": "schemas/routes.json",
+      "structures": "schemas/structures.json"
+    }
+  },
+  "crystal": {
+    "_comments": {
+      "seed": "每个结构假设的采样种子依序增加。"
+    },
+    "seed": 17276357
+  },
+  "crystalformer": {
+    "_comments": {
+      "project_dir": "CrystalFormer_固定化学式生成.ipynb 使用的原版代码目录。",
+      "model_path": "真实预训练权重；不存在时停止，不使用随机初始化。",
+      "num_samples": "每个结构假设的原始采样数；通过组成和实际空间群筛选后的 CIF 数量可能更少或为零。",
+      "batch_size": "原版模型采样批量；Windows 沿用参考 Notebook 的 JAX CPU。",
+      "temperature": "采样温度，沿用参考 Notebook 的 1.0。",
+      "top_p": "核采样阈值，沿用参考 Notebook 的 1.0。",
+      "symprec": "导出和回读 CIF 时的空间群位置容差，单位 Å。",
+      "angle_tolerance": "空间群分析角度容差，单位度。"
+    },
+    "project_dir": "../vendor/CrystalFormer-CSP",
+    "model_path": "../vendor/CrystalFormer-CSP/checkpoints/alex20s/csp/epoch_046000.pkl",
+    "num_samples": 8,
+    "batch_size": 8,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "symprec": 0.01,
+    "angle_tolerance": 5.0
+  }
+}

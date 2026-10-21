@@ -1,0 +1,1 @@
+Correct the validation error while retaining at least one route or structure candidate. Make explicit tentative assumptions instead of abstaining; preserve stoichiometry and chemical consistency. Return English JSON only. Error: {error}

@@ -1,0 +1,368 @@
+{
+  "schema_version": "3.0",
+  "prompt_version": "standardized_english_candidates_v3_2",
+  "model": "deepseek-v4-pro",
+  "thinking": true,
+  "reasoning_effort": "medium",
+  "max_workers": 3,
+  "max_routes": 1,
+  "max_structures_per_route": 1,
+  "settings_signature": "b9b5720fbf2a3341ab1370a0027e19f472ad928625747ebe29cd8bd7d74050f4",
+  "target": {
+    "formula": "TiOF2",
+    "oxidation_states": {
+      "O": -2,
+      "Ti": 4,
+      "F": -1
+    }
+  },
+  "references": [
+    {
+      "reference_id": "DB02733",
+      "formula": "V4 Cu4 O12",
+      "retrieval_channel": [
+        "chemical_similarity"
+      ],
+      "chemical_similarity": 0.8912100443808748,
+      "same_anion": true,
+      "structure_description_provenance": "database_reference_not_verified_route_phase",
+      "record": {
+        "material_id": "mp-1105167",
+        "formula": "V4 Cu4 O12",
+        "description": "CuVO3 crystallizes in the cubic Im-3 space group. V(1) is bonded to six equivalent O(1) atoms to form VO6 octahedra that share corners with six equivalent V(1)O6 octahedra and faces with two equivalent Cu(1)O12 cuboctahedra. The corner-sharing octahedral tilt angles are 38°. All V(1)-O(1) bond lengths are 1.94 Å. There are two inequivalent Cu sites. In the first Cu site, Cu(1) is bonded to twelve equivalent O(1) atoms to form CuO12 cuboctahedra that share faces with eight equivalent V(1)O6 octahedra. All Cu(1)-O(1) bond lengths are 2.59 Å. In the second Cu site, Cu(2) is bonded in a square co-planar geometry to four equivalent O(1) atoms. All Cu(2)-O(1) bond lengths are 1.96 Å. O(1) is bonded in a 3-coordinate geometry to two equivalent V(1), one Cu(1), and one Cu(2) atom.",
+        "synthesis_method": "High-pressure synthesis",
+        "confidence": "High",
+        "precursors": [
+          "CuO",
+          "V2O5"
+        ],
+        "conditions": {
+          "temperature": "1523 K",
+          "time": null,
+          "atmosphere": null,
+          "other": "15 GPa pressure"
+        },
+        "equipment": "Kawai-type high-pressure apparatus",
+        "evidence_snippet": "Samples were synthesized by the solid-state reaction at 15 GPa and 1523 K using a Kawai-type high-pressure apparatus.",
+        "detailed_reasoning": {
+          "precursor_reason": "The precursors are simple oxides (CuO and V2O5), which are common and stable materials, indicating low complexity.",
+          "condition_reason": "The synthesis requires extremely high pressure (15 GPa) and high temperature (1523 K), which are very demanding conditions, scoring as high difficulty.",
+          "step_reason": "The method is described as a direct solid-state reaction under high pressure, suggesting minimal steps, thus scoring as simple.",
+          "equipment_reason": "A specialized Kawai-type high-pressure apparatus is needed, which is not standard laboratory equipment, indicating high equipment requirements.",
+          "phase_reason": "The perovskite phase is stabilized only under high pressure, indicating a narrow phase window and difficulty in achieving pure phase, scoring as high difficulty."
+        },
+        "E_hull": 0.15336664649999301,
+        "Band_Gap": 0.0,
+        "E_above_ground_state": 0.0591
+      }
+    },
+    {
+      "reference_id": "DB09117",
+      "formula": "V2 Cu2 O6",
+      "retrieval_channel": [
+        "chemical_similarity"
+      ],
+      "chemical_similarity": 0.8912100443808748,
+      "same_anion": true,
+      "structure_description_provenance": "database_reference_not_verified_route_phase",
+      "record": {
+        "material_id": "mp-504580",
+        "formula": "V2 Cu2 O6",
+        "description": "CuVO3 is Ilmenite structured and crystallizes in the trigonal R-3 space group. V(1) is bonded to six equivalent O(1) atoms to form distorted VO6 octahedra that share corners with nine equivalent Cu(1)O6 octahedra, edges with three equivalent V(1)O6 octahedra, and  a faceface with one Cu(1)O6 octahedra. The corner-sharing octahedral tilt angles range from 44-59°. There are three shorter (1.82 Å) and three longer (2.07 Å) V(1)-O(1) bond lengths. Cu(1) is bonded to six equivalent O(1) atoms to form distorted CuO6 octahedra that share corners with nine equivalent V(1)O6 octahedra, edges with three equivalent Cu(1)O6 octahedra, and  a faceface with one V(1)O6 octahedra. The corner-sharing octahedral tilt angles range from 44-59°. There are three shorter (2.04 Å) and three longer (2.28 Å) Cu(1)-O(1) bond lengths. O(1) is bonded in a distorted see-saw-like geometry to two equivalent V(1) and two equivalent Cu(1) atoms.",
+        "synthesis_method": "High-pressure synthesis (Multi-anvil / Diamond Anvil Cell - DAC)",
+        "confidence": "High",
+        "precursors": [
+          "Cu",
+          "V",
+          "O"
+        ],
+        "conditions": {
+          "temperature": "900-1000 °C",
+          "time": null,
+          "atmosphere": null,
+          "other": "65 kbar pressure"
+        },
+        "equipment": "High-pressure apparatus (implied from 65 kbar and 900-1000°C conditions)",
+        "evidence_snippet": "Their preparation at 65 kbar and 900-1000°C has been described (I).",
+        "detailed_reasoning": {
+          "precursor_reason": "The precursors are simple elements (Cu, V, O), which are common and stable, as implied by the high-pressure synthesis without mention of complex compounds.",
+          "condition_reason": "Conditions are extremely harsh, involving very high pressure (65 kbar) and high temperature (900-1000°C), which are typical for high-pressure synthesis and require specialized equipment.",
+          "step_reason": "The synthesis is described as a single-step process at high pressure and temperature, with no mention of multiple steps or complex procedures, indicating simplicity in steps.",
+          "equipment_reason": "High-pressure synthesis at 65 kbar requires specialized equipment such as multi-anvil presses or diamond anvil cells, which are not standard laboratory equipment and are complex to operate.",
+          "phase_reason": "The material is a high-pressure phase (CuVO3(II)), which is likely metastable or requires precise conditions to form, making phase control difficult and repeatability challenging."
+        },
+        "E_hull": 0.09447362799999401,
+        "Band_Gap": 0.658999999999999,
+        "E_above_ground_state": 0.0002
+      }
+    },
+    {
+      "reference_id": "DB02337",
+      "formula": "Nb4 O4 F6",
+      "retrieval_channel": [
+        "chemical_similarity"
+      ],
+      "chemical_similarity": 0.8822277283384399,
+      "same_anion": true,
+      "structure_description_provenance": "database_reference_not_verified_route_phase",
+      "record": {
+        "material_id": "mp-1103656",
+        "formula": "Nb4 O4 F6",
+        "description": "Nb2O2F3 crystallizes in the triclinic P-1 space group. There are two inequivalent Nb sites. In the first Nb site, Nb(1) is bonded to one O(2), two equivalent O(1), one F(1), one F(2), and one F(3) atom to form a mixture of edge and corner-sharing NbO3F3 octahedra. The corner-sharing octahedral tilt angles range from 35-44°. The Nb(1)-O(2) bond length is 1.97 Å. There is one shorter (2.07 Å) and one longer (2.08 Å) Nb(1)-O(1) bond length. The Nb(1)-F(1) bond length is 2.12 Å. The Nb(1)-F(2) bond length is 2.14 Å. The Nb(1)-F(3) bond length is 2.10 Å. In the second Nb site, Nb(2) is bonded to one O(1), two equivalent O(2), one F(1), one F(2), and one F(3) atom to form a mixture of edge and corner-sharing NbO3F3 octahedra. The corner-sharing octahedral tilt angles range from 35-44°. The Nb(2)-O(1) bond length is 1.97 Å. There is one shorter (2.07 Å) and one longer (2.08 Å) Nb(2)-O(2) bond length. The Nb(2)-F(1) bond length is 2.12 Å. The Nb(2)-F(2) bond length is 2.10 Å. The Nb(2)-F(3) bond length is 2.14 Å. There are two inequivalent O sites. In the first O site, O(1) is bonded in a 3-coordinate geometry to one Nb(2) and two equivalent Nb(1) atoms. In the second O site, O(2) is bonded in a 3-coordinate geometry to one Nb(1) and two equivalent Nb(2) atoms. There are three inequivalent F sites. In the first F site, F(1) is bonded in a bent 150 degrees geometry to one Nb(1) and one Nb(2) atom. In the second F site, F(2) is bonded in a bent 150 degrees geometry to one Nb(1) and one Nb(2) atom. In the third F site, F(3) is bonded in a bent 150 degrees geometry to one Nb(1) and one Nb(2) atom.",
+        "synthesis_method": "Flux method / Flux growth",
+        "confidence": "High",
+        "precursors": [
+          "Nb",
+          "SnO",
+          "SnF2"
+        ],
+        "conditions": {
+          "temperature": null,
+          "time": null,
+          "atmosphere": "Argon",
+          "other": "Sn flux, welded Nb containers, enclosed in evacuated fused silica jackets"
+        },
+        "equipment": "welded Nb containers, evacuated fused silica jackets, Ar-atmosphere glovebox",
+        "evidence_snippet": "The title compound was synthesized from the reaction of Nb, SnF2 and SnO in Sn flux within welded Nb containers, enclosed in evacuated fused silica jackets.",
+        "detailed_reasoning": {
+          "precursor_reason": "Precursors include elemental Nb, SnO, and SnF2, which are relatively common but require careful handling due to reactivity and sensitivity to moisture/oxygen, justifying a moderate score.",
+          "condition_reason": "Conditions involve inert atmosphere (Ar), use of flux (Sn), and sealed containers under vacuum, indicating high control requirements and sensitivity to air/moisture, warranting a high difficulty score.",
+          "step_reason": "The synthesis involves multiple steps: preparation in a glovebox, sealing in containers, flux reaction, and crystal extraction, but the procedure is described as a modification of a reported method, suggesting moderate complexity.",
+          "equipment_reason": "Equipment includes specialized items like welded Nb containers, evacuated fused silica jackets, and a high-purity Ar glovebox, indicating advanced and specific setup needs, scoring high.",
+          "phase_reason": "The material is a reduced niobium oxyfluoride, noted as challenging to synthesize due to oxidation state control and phase purity, with potential for mixed phases, justifying a high difficulty score."
+        },
+        "E_hull": 0.0,
+        "Band_Gap": 0.0,
+        "E_above_ground_state": 0.0
+      }
+    },
+    {
+      "reference_id": "DB05724",
+      "formula": "Ti2 Ni2 O6",
+      "retrieval_channel": [
+        "chemical_similarity"
+      ],
+      "chemical_similarity": 0.8792593449909392,
+      "same_anion": true,
+      "structure_description_provenance": "database_reference_not_verified_route_phase",
+      "record": {
+        "material_id": "mp-18732",
+        "formula": "Ti2 Ni2 O6",
+        "description": "NiTiO3 is Ilmenite structured and crystallizes in the trigonal R-3 space group. Ti(1) is bonded to six equivalent O(1) atoms to form distorted TiO6 octahedra that share corners with nine equivalent Ni(1)O6 octahedra, edges with three equivalent Ti(1)O6 octahedra, and  a faceface with one Ni(1)O6 octahedra. The corner-sharing octahedral tilt angles range from 47-60°. There are three shorter (1.87 Å) and three longer (2.10 Å) Ti(1)-O(1) bond lengths. Ni(1) is bonded to six equivalent O(1) atoms to form NiO6 octahedra that share corners with nine equivalent Ti(1)O6 octahedra, edges with three equivalent Ni(1)O6 octahedra, and  a faceface with one Ti(1)O6 octahedra. The corner-sharing octahedral tilt angles range from 47-60°. There are three shorter (2.03 Å) and three longer (2.09 Å) Ni(1)-O(1) bond lengths. O(1) is bonded to two equivalent Ti(1) and two equivalent Ni(1) atoms to form a mixture of distorted edge and corner-sharing OTi2Ni2 trigonal pyramids.",
+        "synthesis_method": "Solid-state sintering",
+        "confidence": "High",
+        "precursors": [
+          "Fe2O3",
+          "Ti2O3",
+          "CdCO3",
+          "TiO2"
+        ],
+        "conditions": {
+          "temperature": "1200 °C",
+          "time": "a number of hours",
+          "atmosphere": "evacuated",
+          "other": "sealed in silica glass tubes, quenching"
+        },
+        "equipment": "electric furnace, silica glass tubes",
+        "evidence_snippet": "These preparations were made by heating appropriate mixtures sealed in evacuated silica glass tubes in an electric furnace at about 1200° for a number of hours, and then quenching them.",
+        "detailed_reasoning": {
+          "precursor_reason": "The precursors used are common oxides (Fe2O3, Ti2O3, TiO2) and cadmium carbonate (CdCO3), which are stable and readily available, indicating low complexity.",
+          "condition_reason": "The synthesis involves heating at about 1200°C in evacuated silica tubes, which requires moderate temperature control and inert atmosphere, but is not extremely harsh, scoring medium difficulty.",
+          "step_reason": "The process includes mixing, sealing in tubes, heating, quenching, and sometimes regrinding and reheating for homogeneity, involving multiple steps but not overly complex, scoring medium difficulty.",
+          "equipment_reason": "Only an electric furnace and silica glass tubes are mentioned, which are standard laboratory equipment, indicating low equipment requirements.",
+          "phase_reason": "Achieving homogeneous phases required repeated grinding and heating for some compositions, and controlling phase formation (e.g., ilmenite vs. perovskite for CdTiO3) involved temperature variations, indicating moderate phase control difficulty."
+        },
+        "E_hull": 0.0,
+        "Band_Gap": 0.0,
+        "E_above_ground_state": 0.0
+      }
+    },
+    {
+      "reference_id": "DB01302",
+      "formula": "Mg2 V2 O6",
+      "retrieval_channel": [
+        "chemical_similarity"
+      ],
+      "chemical_similarity": 0.873485795802832,
+      "same_anion": true,
+      "structure_description_provenance": "database_reference_not_verified_route_phase",
+      "record": {
+        "material_id": "mp-1079330",
+        "formula": "Mg2 V2 O6",
+        "description": "MgVO3 crystallizes in the orthorhombic Cmc2_1 space group. Mg(1) is bonded in a 5-coordinate geometry to one O(2) and four equivalent O(1) atoms. The Mg(1)-O(2) bond length is 1.96 Å. All Mg(1)-O(1) bond lengths are 2.07 Å. V(1) is bonded in a 5-coordinate geometry to one O(2) and four equivalent O(1) atoms. The V(1)-O(2) bond length is 1.69 Å. There are two shorter (1.97 Å) and two longer (1.98 Å) V(1)-O(1) bond lengths. There are two inequivalent O sites. In the first O site, O(1) is bonded to two equivalent Mg(1) and two equivalent V(1) atoms to form a mixture of distorted edge and corner-sharing OMg2V2 trigonal pyramids. In the second O site, O(2) is bonded in a linear geometry to one Mg(1) and one V(1) atom.",
+        "synthesis_method": "Direct solid-state reaction",
+        "confidence": "High",
+        "precursors": [
+          "MgO",
+          "VO2"
+        ],
+        "conditions": {
+          "temperature": "900 °C",
+          "time": "approximately fifteen days",
+          "atmosphere": "vacuum",
+          "other": "sealed in a vycor tube with gold protection"
+        },
+        "equipment": "vycor tube sealed under vacuum with gold protection",
+        "evidence_snippet": "Elles ont été préparées à 900°C par synthèse directe à partir des oxydes MgO et VO2 en tube de vycor muni d'une protection d'or et scellé sous vide.",
+        "detailed_reasoning": {
+          "precursor_reason": "The precursors MgO and VO2 are simple oxides, commonly available and stable, with no mention of complex handling or purity issues.",
+          "condition_reason": "The synthesis requires high temperature (900°C) and vacuum sealing, which involves moderate control but is not extremely harsh like ultra-high pressure or strict inert atmospheres.",
+          "step_reason": "The method is described as direct synthesis from oxides, implying a straightforward solid-state reaction with minimal steps, such as mixing and heating.",
+          "equipment_reason": "A vycor tube sealed under vacuum with gold protection is specialized but not highly complex; it is a standard setup for high-temperature solid-state reactions, not requiring advanced equipment like diamond anvil cells.",
+          "phase_reason": "The need for annealing for about fifteen days to isolate crystals of MgV2O5 suggests moderate phase control difficulty, as it requires prolonged heating to achieve phase purity, but no extreme conditions like narrow phase windows are mentioned."
+        },
+        "E_hull": 0.18472074199999503,
+        "Band_Gap": 0.0,
+        "E_above_ground_state": 0.1847
+      }
+    }
+  ],
+  "route_assessments": {
+    "rag_inference": "Proposed Sn-flux redox route is balanced for TiOF2 and chemically analogous to DB02337, but phase formation and Ti valence retention are unverified. TiF4 volatility and competing titanium subfluorides/oxides are key risks; screening required."
+  },
+  "routes": [
+    {
+      "route_id": "R01",
+      "route_basis": "rag_inference",
+      "method": "Liquid Sn flux growth in welded Nb container under Ar",
+      "precursors": [
+        "Ti",
+        "SnO",
+        "SnF2"
+      ],
+      "steps": [
+        {
+          "operation": "Seal Ti metal with SnO and SnF2 precursors plus Sn flux in a welded Nb container under Ar, then enclose in an evacuated fused silica jacket.",
+          "temperature_C": null,
+          "time_h": null,
+          "atmosphere": "Ar",
+          "pressure_bar": null,
+          "heating_cooling": null,
+          "evidence_type": "reported",
+          "reference_ids": [
+            "DB02337"
+          ],
+          "notes": "Container, atmosphere and Sn flux procedure are transferred from the Nb2O2F3 flux synthesis; substitution of Ti for Nb is unverified."
+        },
+        {
+          "operation": "Heat the sealed container to promote redox metathesis and crystal growth, then cool to ambient.",
+          "temperature_C": 700,
+          "time_h": 24,
+          "atmosphere": "Ar",
+          "pressure_bar": null,
+          "heating_cooling": "slow cooling",
+          "evidence_type": "inferred",
+          "reference_ids": [],
+          "notes": "Specific temperature/time not reported in DB02337; 700 °C and 24 h are screening values inferred for early transition-metal oxyfluoride flux growth."
+        }
+      ],
+      "reference_ids": [
+        "DB02337"
+      ],
+      "transfer_reasoning": "DB02337 demonstrates a metal + SnO + SnF2 flux reaction under Ar for a group 5 oxyfluoride (Nb4O4F6). TiOF2 can be targeted by an analogous group 4 reaction, Ti + SnO + SnF2 -> TiOF2 + 2Sn, preserving Ti4+ and forming Sn as the flux byproduct.",
+      "uncertainties": [
+        "The route is unverified for TiOF2; Ti may form TiF4 vapor or lower-valent titanium fluorides/oxides.",
+        "Sn flux and Nb container may react with Ti or alter oxygen/fluorine activity.",
+        "Formation of a single-phase TiOF2 product is not guaranteed; phase screening is required."
+      ],
+      "route_summary": "React titanium metal with SnO and SnF2 in a liquid Sn flux inside a welded Nb container under Ar with evacuated fused silica jacketing; this unverified flux route is adapted from DB02337 and includes inferred 700 °C heating.",
+      "balanced_reaction": {
+        "reactants": [
+          {
+            "formula": "Ti",
+            "amount": 1
+          },
+          {
+            "formula": "SnO",
+            "amount": 1
+          },
+          {
+            "formula": "SnF2",
+            "amount": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "TiOF2",
+            "amount": 1
+          },
+          {
+            "formula": "Sn",
+            "amount": 2
+          }
+        ]
+      },
+      "structure_hypotheses": [
+        {
+          "hypothesis_id": "H01",
+          "product_formula": "TiOF2",
+          "crystal_system": "tetragonal",
+          "space_group_candidates": [
+            {
+              "number": 123,
+              "reason": "Derived from the cubic ReO3 parent by ordering O on one unique axis and F on the two perpendicular axes; this lowers the symmetry to primitive tetragonal P4/mmm.",
+              "reference_ids": [],
+              "basis": "exploratory"
+            }
+          ],
+          "coordination": [
+            {
+              "center": "Ti",
+              "neighbor": "O",
+              "number": 2,
+              "geometry": "linear"
+            },
+            {
+              "center": "Ti",
+              "neighbor": "F",
+              "number": 4,
+              "geometry": "square planar"
+            },
+            {
+              "center": "O",
+              "neighbor": "Ti",
+              "number": 2,
+              "geometry": "linear"
+            },
+            {
+              "center": "F",
+              "neighbor": "Ti",
+              "number": 2,
+              "geometry": "linear"
+            }
+          ],
+          "connectivity": "Corner-sharing Ti(O,F)6 octahedra form a three-dimensional framework; ordered O atoms occupy bridging positions along the c-axis, while F atoms occupy bridging positions along the a and b axes.",
+          "network_dimension": 3,
+          "evidence": [
+            {
+              "reference_id": "DB02337",
+              "basis": "analogy_inference",
+              "reason": "DB02337 reports an early transition-metal oxyfluoride with O and F bridging, prepared by a similar Sn-flux method; this supports a chemically plausible TiOF2 oxyfluoride framework but not the specific ordered structure."
+            }
+          ],
+          "uncertainties": [
+            "No direct experimental structure for TiOF2 is supplied; the P4/mmm ordered ReO3 arrangement is inferred and unverified.",
+            "The O/F ordering along the unique c-axis is assumed; random or different anion ordering may occur.",
+            "The Sn-flux route may not yield single-phase TiOF2; Ti-containing side phases or lower-valent titanium species could form."
+          ],
+          "hypothesis_basis": "rag_inference",
+          "prototype": {
+            "formula": "ReO3",
+            "site_mapping": {
+              "Ti": "Re",
+              "O": "O",
+              "F": "O"
+            }
+          },
+          "structure_type": "ordered ReO3-type",
+          "structural_details": "TiOF2 is an ordered ReO3-derived framework in which each Ti is octahedrally coordinated by six anions, specifically two trans O and four equatorial F. The O atoms occupy the apical bridging positions along the unique c-axis and are each shared between two Ti centers, while the F atoms occupy all equatorial bridging positions along the a and b directions and are also two-coordinate. This yields a corner-sharing Ti(O,F)6 octahedral network with three-dimensional connectivity and a 1:2 O:F anion order consistent with the TiOF2 stoichiometry.",
+          "description": "TiOF2 is ordered ReO3-type structured and crystallizes in the tetragonal P4/mmm space group (No. 123). TiOF2 is an ordered ReO3-derived framework in which each Ti is octahedrally coordinated by six anions, specifically two trans O and four equatorial F. The O atoms occupy the apical bridging positions along the unique c-axis and are each shared between two Ti centers, while the F atoms occupy all equatorial bridging positions along the a and b directions and are also two-coordinate. This yields a corner-sharing Ti(O,F)6 octahedral network with three-dimensional connectivity and a 1:2 O:F anion order consistent with the TiOF2 stoichiometry."
+        }
+      ],
+      "assessment": "A single tentative ordered ReO3-derived model is proposed for TiOF2. It is chemically motivated by the target stoichiometry and by analogy with early transition-metal oxyfluoride chemistry, but it is not experimentally confirmed. The O/F ordering is a simplifying assumption; other anion arrangements or a disordered cubic ReO3 variant may also be possible."
+    }
+  ],
+  "status": "hypotheses_ready",
+  "elapsed_seconds": 150.9212797000073,
+  "failures": []
+}

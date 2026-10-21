@@ -1,0 +1,1 @@
+Generate a fresh alternative rather than copying previous candidates. Return one simple coherent candidate first. For structures, prefer a custom topology with prototype=null if a named prototype cannot be mapped. Keep all fields explicit, coordination counts reciprocal, and the target composition unchanged. Previous validation errors to avoid: {error}

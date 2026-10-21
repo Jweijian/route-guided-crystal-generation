@@ -1,0 +1,224 @@
+{
+  "type": "object",
+  "properties": {
+    "structure_hypotheses": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "hypothesis_id": {
+            "type": "string",
+            "pattern": "^H[0-9]{2}$"
+          },
+          "product_formula": {
+            "type": "string",
+            "description": "Same elements and reduced stoichiometry as the target; only target-composition polymorphs.",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "description": "Standardized English paragraph assembled from structure_type, crystal_system, the single space group, and structural_details.",
+            "maxLength": 2400
+          },
+          "crystal_system": {
+            "enum": [
+              "triclinic",
+              "monoclinic",
+              "orthorhombic",
+              "tetragonal",
+              "trigonal",
+              "hexagonal",
+              "cubic"
+            ]
+          },
+          "space_group_candidates": {
+            "type": "array",
+            "maxItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "number": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 230
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "reference_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "basis": {
+                  "enum": [
+                    "database_reference",
+                    "analogy_inference",
+                    "exploratory"
+                  ]
+                }
+              },
+              "required": [
+                "number",
+                "reason",
+                "reference_ids",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "coordination": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "center": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "neighbor": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "number": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "geometry": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Geometry of the specified neighbor subset, not the sum of different neighbor species."
+                }
+              },
+              "required": [
+                "center",
+                "neighbor",
+                "number",
+                "geometry"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "connectivity": {
+            "type": "string",
+            "minLength": 10
+          },
+          "network_dimension": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "type": "object",
+              "properties": {
+                "reference_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "basis": {
+                  "enum": [
+                    "database_reference",
+                    "analogy_inference"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "reference_id",
+                "basis",
+                "reason"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "uncertainties": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "hypothesis_basis": {
+            "enum": [
+              "model_inference",
+              "rag_inference"
+            ],
+            "description": "Evidence source for this structure, independent of its route; use model_inference for exploration without retrieved support."
+          },
+          "prototype": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "formula": {
+                "type": "string"
+              },
+              "site_mapping": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "formula",
+              "site_mapping"
+            ],
+            "additionalProperties": false
+          },
+          "structure_type": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 160,
+            "description": "Named compatible prototype or a specific hypothetical topology, e.g. hypothetical layered oxypnictide."
+          },
+          "structural_details": {
+            "type": "string",
+            "minLength": 40,
+            "maxLength": 1800,
+            "description": "Two to four English sentences specifying element-specific coordination, polyhedra, connectivity, dimensionality, and site arrangement."
+          }
+        },
+        "required": [
+          "hypothesis_id",
+          "product_formula",
+          "crystal_system",
+          "space_group_candidates",
+          "coordination",
+          "connectivity",
+          "network_dimension",
+          "evidence",
+          "uncertainties",
+          "hypothesis_basis",
+          "prototype",
+          "structure_type",
+          "structural_details"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "assessment": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "structure_hypotheses",
+    "assessment"
+  ],
+  "additionalProperties": false
+}

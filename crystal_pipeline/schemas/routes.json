@@ -1,0 +1,217 @@
+{
+  "type": "object",
+  "properties": {
+    "routes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "route_id": {
+            "type": "string",
+            "pattern": "^R[0-9]{2}$"
+          },
+          "method": {
+            "type": "string",
+            "minLength": 1
+          },
+          "precursors": {
+            "type": "array",
+            "description": "If balanced_reaction is non-null, parseable chemical formulas matching exactly all reactant species, including consumed gases. Put unconsumed solvents, inert atmospheres and additives in step notes. Otherwise exploratory precursor names are allowed.",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "operation": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "temperature_C": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "time_h": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "atmosphere": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "pressure_bar": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "exclusiveMinimum": 0
+                },
+                "heating_cooling": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence_type": {
+                  "enum": [
+                    "reported",
+                    "inferred",
+                    "unknown"
+                  ]
+                },
+                "reference_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "notes": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "operation",
+                "temperature_C",
+                "time_h",
+                "atmosphere",
+                "pressure_bar",
+                "heating_cooling",
+                "evidence_type",
+                "reference_ids",
+                "notes"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "reference_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "transfer_reasoning": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uncertainties": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "route_basis": {
+            "enum": [
+              "model_inference",
+              "rag_inference"
+            ],
+            "description": "model_inference uses no retrieval records; rag_inference uses the supplied records."
+          },
+          "route_summary": {
+            "type": "string",
+            "description": "One English sentence giving precursors, method, essential conditions, and unverified status.",
+            "maxLength": 600
+          },
+          "balanced_reaction": {
+            "description": "Optional element-balanced equation with positive finite species counts and coefficients, exact precursor/reactant species agreement without reducing molecular counts, and positive net production of the target. Identity reactions are invalid; use null for uncertain exploratory routes.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "reactants": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "formula": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    }
+                  },
+                  "required": [
+                    "formula",
+                    "amount"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "products": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "formula": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    }
+                  },
+                  "required": [
+                    "formula",
+                    "amount"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "reactants",
+              "products"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "route_id",
+          "route_basis",
+          "method",
+          "precursors",
+          "steps",
+          "reference_ids",
+          "transfer_reasoning",
+          "uncertainties",
+          "route_summary",
+          "balanced_reaction"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "assessment": {
+      "type": "string",
+      "maxLength": 300
+    }
+  },
+  "required": [
+    "routes",
+    "assessment"
+  ],
+  "additionalProperties": false
+}
