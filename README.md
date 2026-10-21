@@ -28,6 +28,8 @@ python -m pip install -r requirements.txt
 python -m ipykernel install --user --name route-crystal --display-name "Python (route-crystal)"
 ```
 
+Windows / Python 3.10 的完整依赖版本已记录在 `requirements-lock-windows-py310.txt`，需要复现本次验证环境时，可将上述安装命令改为 `python -m pip install -r requirements-lock-windows-py310.txt`。常规安装仍可使用 `requirements.txt`。
+
 默认 ELM 使用 CPU；有 NVIDIA GPU 时，可安装适配的 PyTorch CUDA wheel，并将 `crystal_pipeline/config.json` 的 `elm.device` 改为 `cuda`。CrystalFormer 沿用已验证的 JAX CPU 配置。
 
 ## 验证运行资源
@@ -78,6 +80,8 @@ python crystal_pipeline/run.py
 
 `pipeline.formula_source="elm"` 使用 ELM；改为 `file` 可读取 `crystal_pipeline/inputs/formulas.json`。数量由 `elm.num_formulas` 控制。第二阶段默认每个结构假设原始采样 8 个，参数位于 `crystalformer` 节。
 
+首次试跑建议将 `elm.num_formulas` 改为 `1`，确认 API 与本地采样正常后再增大批量；当前配置保留原来的 `100`。
+
 单独指定化学式和空间群生成结构，可打开项目根目录的 `CrystalFormer_固定化学式生成.ipynb`。
 
 ## 输出与生成条件
@@ -103,5 +107,7 @@ python scripts/smoke_test.py
 ```
 
 烟雾测试会生成一个 ELM 化学式、检索数据库，并为 `LiCu2OF3 / 空间群14` 采样结构。完整流程的路线与描述阶段仍需要用户自己的 DeepSeek API 密钥。
+
+2026-10-21 已在独立的 Windows / Python 3.10 虚拟环境中按依赖文件安装并验证：`pip check` 通过、18项离线测试通过，真实 ELM / RAG / CrystalFormer 烟雾测试得到3个组成与空间群匹配的候选。另以 `Ba2ZrO4` 输入完成真实 RAG、DeepSeek 路线与描述及 CrystalFormer 生成，8个采样均匹配组成和空间群139。测试结果不代表候选已经过能量弛豫。
 
 第三方源码与来源见 `THIRD_PARTY_NOTICES.md`。仓库中的算法整合保持当前流程，未包含其他历史结构生成后端。
