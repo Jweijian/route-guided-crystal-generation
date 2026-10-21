@@ -15,7 +15,7 @@ cd route-guided-crystal-generation
 git lfs pull
 ```
 
-仓库目前为私有，下载者需要获得仓库访问权限。
+仓库已公开，可直接克隆并通过 Git LFS 下载运行资源。
 
 ## 安装
 
